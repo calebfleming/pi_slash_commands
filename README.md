@@ -67,7 +67,7 @@ Make note of the forwarding URL. In the example photo it was `http://018bad74.ng
 
 Detach from your screen with `CTRL + A D`
 
-*A quick but very important note on this. If you're process dies (and it probably will at some point!), when you relaunch this command you will get a different forwarding URL and you will have to update your slash commands accordingly.*
+*A quick but very important note on this. If your process dies (and it probably will at some point!), when you relaunch this command you will get a different forwarding URL and you will have to update your slash commands accordingly.*
 
 ## set up the http server to process incoming http requests
 Let's return to the home directory with `cd ~/.` and create an empty folder called `slackapp`. Create an `index.js` file inside this folder. I've included a reference file (copied and modified from the Slack tutorial) in this repo called `index.js`.
