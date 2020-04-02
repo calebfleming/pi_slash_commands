@@ -96,3 +96,9 @@ Reconnect to the screen where you set up the http server and kill the process wi
 To authenticate, go to `https://api.slack.com/docs/slack-button`  and find the `Add to Slack button HTML` section. Select your app, check the `commands scope` box, and click `Add to Slack`
 
 Your slash command should now work!
+
+## updating your app
+
+If you want to add new commands, you can pretty simply follow the format I have in the example `index.js` file. You'll need to reattached to the screen you ran the `sudo node index.js` in, kill the old command, and reinitialize it after you've updated your app.
+
+You shouldn't need to attach to the screen where your server was tunneled (unless something broke). As I stated earlier, this will result in a new forwarding address and will require updates in a handful of places :)
