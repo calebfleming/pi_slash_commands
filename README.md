@@ -1,5 +1,5 @@
 # pi_slash_commands
-Tutorial for setting up slash commands to be hosted on a headless raspberry pi 3b+. My specific use-case was to link a command like `/gotem` to a specific gif posted in the channel.
+Tutorial for setting up Slack slash commands to be hosted on a headless raspberry pi 3b+. My specific use-case was to link a command like `/gotem` to a specific gif posted in the channel.
 
 I am certain there are better ways to do this. But I hope this helps you get started.
 
