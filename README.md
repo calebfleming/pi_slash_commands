@@ -10,9 +10,9 @@ The bones of this overlaps with what you can follow here:
 I've modified some pieces to work specifically with the Pi use-case.
 
 # dependencies
--ngrok
--screen
--node.js
+* ngrok
+* screen
+* node.js
 
 # process
 ## download and extract ngrok
@@ -47,10 +47,10 @@ If you don't have it already, download screen with this:
 
 This allows us to disconnect and reconnect from our processes without killing them. We can even disconnect from the SSH session, which is perfect for using the pi as a remote server to process our slash commands.
 
--To open a screen, use the command `screen`. 
--To detach from session, use `CTRL + A and then D`
--To list your available screens, use `screen -ls`
--To reconnect to a specific screen, use `screen -r screenID`
+* To open a screen, use the command `screen`. 
+* To detach from session, use `CTRL + A and then D`
+* To list your available screens, use `screen -ls`
+* To reconnect to a specific screen, use `screen -r screenID`
 
 These are basically the only screen commands I know and should be more than enough for now.
 
@@ -79,19 +79,19 @@ Detach from the screen and create the slack app! We'll come back and refactor th
 ## creating a private slack app
 With the setup we've done so far, we can now follow very closely with the Slack instructions (Reminder, they did all the hard work and their docs live here: https://api.slack.com/tutorials/tunneling-with-ngrok)
 
--Go to `https://api.slack.com/apps`
--Click `Create new App`
--In the redirect URI field, paste your ngrok forwarding address and add the /oauth endpoint at the end of the address. Example: `http://018bad74.ngrok.io/oauth`
--Click `Create App`
--Click `Slash Commands` on the left menu and then `Create New Command`
---Use the same forwarding address from before
---The `Command` is what the app will listen for in slack
---The at the end of the forwarding address in the `Request URL` add whatever string you have in your `index.js`. Using the example provided this might be `http://018bad74.ngrok.io/command_gotem`
+* Go to `https://api.slack.com/apps`
+* Click `Create new App`
+* In the redirect URI field, paste your ngrok forwarding address and add the /oauth endpoint at the end of the address. Example: `http://018bad74.ngrok.io/oauth`
+* Click `Create App`
+* Click `Slash Commands` on the left menu and then `Create New Command`
+ * Use the same forwarding address from before
+ * The `Command` is what the app will listen for in slack
+ * The at the end of the forwarding address in the `Request URL` add whatever string you have in your `index.js`. Using the example provided this might be `http://018bad74.ngrok.io/command_gotem`
 (From `app.post('/command_gotem', ...`)
--Click `Basic Info` in the left menu and get your client ID and client secret. Add those to `index.js`
+* Click `Basic Info` in the left menu and get your client ID and client secret. Add those to `index.js`
 
 ## authenticating and getting it all running
-Reconnect to the screen where you set up the http server and kill the process with `CTRL+c`. Kick it off again with `sudo node index.js` and all the changes you made in the previous step will take effect.
+Reconnect to the screen where you set up the http server and kill the process with `CTRL + C`. Kick it off again with `sudo node index.js` and all the changes you made in the previous step will take effect.
 
 To authenticate, go to `https://api.slack.com/docs/slack-button`  and find the `Add to Slack button HTML` section. Select your app, check the `commands scope` box, and click `Add to Slack`
 
