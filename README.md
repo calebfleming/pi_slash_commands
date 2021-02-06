@@ -38,8 +38,13 @@ tar -xzf node-v8.9.0-linux-armv6l.tar.gz
 ```
 Test the install by running `node -v` and `npm -v`.
 
+Note: I recently (2-2-2021) tried to set this up and had issues installing with the above command. I found it effective (and easier) to do:
+```
+sudo apt install nodejs
+```
+
 Our script will eventually need two modules that may or may not come with the base install (I don't know anything about node, but I vaguely remember having to install these). Run this:
-`npm install express request` 
+`npm install express axios` 
 
 ## set up your screen
 If you don't have it already, download screen with this:
