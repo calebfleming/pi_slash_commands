@@ -1,6 +1,6 @@
 // Import express and request modules
 var express = require('express');
-var request = require('request');
+var request = require('axios');
 
 // Store our app's ID and Secret. These we got from Step 1.
 // For this tutorial, we'll keep your API credentials right here. But for an actual app, you'll want to  store them securely in environment variables.
