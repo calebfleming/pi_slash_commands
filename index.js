@@ -7,6 +7,18 @@ var request = require('axios');
 var clientId = 'clientId';
 var clientSecret = 'clientSecret';
 
+const gifConfig = {
+  gotem: 'https://media.giphy.com/media/Ko7UAfIKrlTyw/giphy.gif',
+  doc: 'https://media.giphy.com/media/4C68wmly8RyUg/giphy.gif',
+  strut: 'https://media.giphy.com/media/ghpdI3dNfX0pW/giphy.gif',
+  yeahyep: 'https://media.giphy.com/media/3oFzm7MaLnMdD1T6tG/giphy.gif',
+  interesting: 'https://media.giphy.com/media/VFYJXIuuFl6pO/giphy.gif',
+  lolz: 'https://media.giphy.com/media/VIVWFx6c91AAwWLwWB/giphy.gif',
+  nope: 'https://media.giphy.com/media/fDO2Nk0ImzvvW/giphy.gif',
+  undertaker: 'https://media.giphy.com/media/b6iVj3IM54Abm/giphy.gif',
+};
+
+
 // Instantiates Express and assigns our app variable to it
 var app = express();
 
@@ -48,6 +60,27 @@ app.get('/oauth', function(req, res) {
             }
         })
     }
+});
+
+app.post('/command_generic', function(req, res) {
+  const requestParam = req.text || 'invalid';
+
+  const getRandom = () => {
+    const properties = Object.getOwnPropertyNames(gifConfig);
+    const index = Math.floor(Math.random() * properties.length);
+    return gifConfig[properties[index]];
+  }
+
+  const response = {
+    response_type: 'in_channel',
+    attachments: [
+      {
+        image_url = gifConfig[requestParam]  ? gifConfig[requestParam] : getRandom()
+      }
+    ]
+  };
+
+  res.json(response);
 });
 
 app.post('/command_gotem', function(req, res) {
